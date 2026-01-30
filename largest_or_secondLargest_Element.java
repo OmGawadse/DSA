@@ -16,15 +16,15 @@ public class largest_or_secondLargest_Element {
                 largest = arr[i];    // update largest
             }
         }
-
         return largest; // return the final largest element
     }
 
 
     public static int slargest(int arr[], int n) {
         int largest = arr[0];
-        int secondLargest = -1;  // For largest element -1 will work as we are assuming all elements are non-negative.
-        // If negative elements are also present, we can initialize secondLargest to Integer.MIN_VALUE.
+        int secondLargest = Integer.MIN_VALUE;  
+        //Integer.MIN_VALUE is the smallest possible integer in Java.
+
         for(int i = 1; i < n; i++){
             if(arr[i] > largest){
                 secondLargest = largest;
@@ -37,6 +37,7 @@ public class largest_or_secondLargest_Element {
         return secondLargest;
     }
 
+
     public static int Smallest_Element(int arr[],  int n) {
         int smallest = arr[0];
 
@@ -48,6 +49,7 @@ public class largest_or_secondLargest_Element {
         return smallest;
     }
 
+    
     public static int sSmallest(int arr[], int n){
         int smallest = arr[0];
         int secondsmallest = Integer.MAX_VALUE; 
