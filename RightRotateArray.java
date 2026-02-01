@@ -10,9 +10,10 @@ public class RightRotateArray {
     public static void rotateKtimes(int arr[],int n,int k) {
         k = k % n;
 
+        reverse(arr, 0, n-1);
         reverse(arr, 0, k-1);
         reverse(arr, k, n-1);
-        reverse(arr, 0, n-1);
+      
     }
 
     public static void reverse(int arr[], int s, int e){
