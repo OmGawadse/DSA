@@ -15,13 +15,13 @@ public class LeftRotateArray {
         reverse(arr, 0, n - 1);
     }
 
-    static void reverse(int[] arr, int start, int end) {
-        while (start < end) {
-            int temp = arr[start];
-            arr[start] = arr[end];
-            arr[end] = temp;
-            start++;
-            end--;
+    static void reverse(int[] arr, int size, int k) {
+        while (size < k) {
+            int temp = arr[size];
+            arr[size] = arr[k];
+            arr[k] = temp;
+            size++;
+            k--;
         }
     }
 

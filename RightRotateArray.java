@@ -16,15 +16,15 @@ public class RightRotateArray {
       
     }
 
-    public static void reverse(int arr[], int s, int e){
-        if(s>=e){
+    static void reverse(int[] arr, int size, int k) {
+        if(size>=k){
             return;
         }
-        int temp = arr[s];
-        arr[s] = arr[e];
-        arr[e] = temp;
+        int temp = arr[size];
+        arr[size] = arr[k];
+        arr[k] = temp;
 
-        reverse(arr, s+1, e-1);
+        reverse(arr, size+1, k-1);
     }
 
     public static void main(String[] args) {
