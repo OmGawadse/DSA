@@ -1,4 +1,4 @@
-// 38.
+// 39.
 // LeetCode Problem: 283 - Move Zeroes
 public class Move0stoEnd {
     public static void moveZerosToEnd(int arr[]){
@@ -36,9 +36,9 @@ public class Move0stoEnd {
         }
 
         /*
-         for (int i = 0; i < arr.length; i++) {
-    System.out.print(arr[i] + " ");
-}
+        for (int i = 0; i < arr.length; i++) {
+        System.out.print(arr[i] + "  ");
+    }
          */
     }
 }
