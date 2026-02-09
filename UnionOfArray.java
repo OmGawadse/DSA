@@ -1,4 +1,9 @@
 // 40.
+// Union of two arrays- This is the optimal solution for Unsorted Arrays Can also be used for Sorted Array.
+//  It uses a HashSet to store unique elements from both arrays, ensuring that duplicates are automatically handled. 
+// The time complexity is O(n + m) where n and m are the lengths of the two arrays.
+// The space complexity is O(n + m) in the worst case when all elements are unique.
+
 // A Set does not maintain index positions like arrays or lists 
 // — it’s unordered (HashSet) or sorted (TreeSet) but not indexed.
 
