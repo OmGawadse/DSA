@@ -6,6 +6,13 @@
     "configurations": [
         {
             "type": "java",
+            "name": "ElementThatAppearOnes",
+            "request": "launch",
+            "mainClass": "ElementThatAppearOnes",
+            "projectName": "DSA- Sheet_b3e02aa4"
+        },
+        {
+            "type": "java",
             "name": "MaxConsecutiveOnes",
             "request": "launch",
             "mainClass": "MaxConsecutiveOnes",
