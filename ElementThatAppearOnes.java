@@ -1,3 +1,14 @@
+// 47 .
+// Leetcode Problem no 136: Single Number.
+// Every element appears twice except for one. Find that single one.
+/*
+| Function      | Meaning             |
+| ------------- | ------------------- |
+| put()         | Insert or update    |
+| get()         | Get value           |
+| containsKey() | Check if key exists |
+| keySet()      | Get all keys        |
+*/
 
 import java.util.HashMap;
 
