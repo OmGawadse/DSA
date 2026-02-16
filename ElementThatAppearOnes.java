@@ -58,7 +58,19 @@ public class ElementThatAppearOnes {
 
         return -1;
     }
+    // -------------------- OPTIMAL (XOR) --------------------
+    // Time Complexity: O(n)
+    // Space Complexity: O(1)
+    public static int optimal(int[] arr) {
 
+        int result = 0;
+
+        for (int i = 0; i < arr.length; i++) {
+            result = result ^ arr[i];
+        }
+
+        return result;
+    }
 
 
     // -------------------- MAIN METHOD --------------------
@@ -68,6 +80,7 @@ public class ElementThatAppearOnes {
 
         System.out.println("Brute Force Answer: " + bruteForce(arr));
         System.out.println("Better (HashMap) Answer: " + better(arr));
+        System.out.println("Optimal (XOR) Answer: " + optimal(arr));
         
     }
 }
