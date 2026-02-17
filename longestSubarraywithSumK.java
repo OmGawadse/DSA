@@ -1,3 +1,5 @@
+// 48 .
+// Longest Subarray with Sum K
 
 import java.util.HashMap;
 
@@ -83,3 +85,10 @@ public class longestSubarraywithSumK {
         System.out.println("Optimal (O(n))       : " + optimalApproach(arr, K));
     }
 }
+/*
+| Approach    | Time Complexity | Space |
+| ----------- | --------------- | ----- |
+| Brute Force | O(n³)           | O(1)  |
+| Better      | O(n²)           | O(1)  |
+| Optimal     | O(n)            | O(n)  |
+ */
