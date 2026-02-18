@@ -18,6 +18,7 @@ public class TwoSum {
         return new int[]{-1, -1};
     }
 
+
     // 2) Better Approach (HashMap)
     public static int[] betterApproach(int[] arr, int target) {
         HashMap<Integer, Integer> map = new HashMap<>();
@@ -34,27 +35,7 @@ public class TwoSum {
         return new int[]{-1, -1};
     }
 
-    // 3) Optimal Approach (Two Pointer - Only for Sorted Array)
-    public static int[] optimalApproach(int[] arr, int target) {
-        int left = 0;
-        int right = arr.length - 1;
-
-        while(left < right) {
-            int sum = arr[left] + arr[right];
-
-            if(sum == target) {
-                return new int[]{left, right};
-            }
-            else if(sum < target) {
-                left++;
-            }
-            else {
-                right--;
-            }
-        }
-        return new int[]{-1, -1};
-    }
-
+   
     public static void main(String[] args) {
 
         int[] arr = {2, 7, 11, 15};
@@ -64,7 +45,7 @@ public class TwoSum {
         System.out.println("Better (HashMap): " + Arrays.toString(betterApproach(arr, target)));
 
         // For optimal approach, array must be sorted
-        System.out.println("Optimal (Two Pointer - Sorted Array Only): " 
-                + Arrays.toString(optimalApproach(arr, target)));
+        //System.out.println("Optimal (Two Pointer - Sorted Array Only): " 
+         //       + Arrays.toString(optimalApproach(arr, target)));
     }
 }
