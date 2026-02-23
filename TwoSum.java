@@ -18,12 +18,13 @@ public class TwoSum {
         return new int[]{-1, -1};
     }
 
-    // 2) Better Approach (HashMap)
+    // 2) Better Approach (HashMap)     
+    // Here we are storing the array[element] and its index in the HashMap, so that we can easily check. what check?
     public static int[] betterApproach(int[] arr, int target) {
         HashMap<Integer, Integer> map = new HashMap<>();
 
         for(int i = 0; i < arr.length; i++) {
-            int remaining = target - arr[i];
+            int remaining = target - arr[i]; // - if the remaining value (target - current value) exists in the map, then we have found the pair of numbers that add up to the target. We can return their indices as the result.
 
             if(map.containsKey(remaining)) {
                 return new int[]{map.get(remaining), i};
