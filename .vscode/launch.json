@@ -6,6 +6,13 @@
     "configurations": [
         {
             "type": "java",
+            "name": "Sort012",
+            "request": "launch",
+            "mainClass": "Sort012",
+            "projectName": "DSA- Sheet_b3e02aa4"
+        },
+        {
+            "type": "java",
             "name": "ElementThatAppearOnes",
             "request": "launch",
             "mainClass": "ElementThatAppearOnes",
