@@ -31,7 +31,6 @@ public class Sort012 {
             }
         }
 
-
         int index = 0;
 // arr[index] = 0 ----> It stores 0 at the index position (starting from 0, As we have given index =0) 
 // +++ ----> Then increments the index using the post-increment operator. So, it fills the array with 0s first, then 1s, and finally 2s based on the counts we calculated.
@@ -48,6 +47,31 @@ public class Sort012 {
             arr[index++] = 2;
         }
     }
+
+    // 3) Optimal Approach:- (Dutch National Flag Algorithm)
+    public static void optimalApproach(int[] arr) {
+        int low = 0, mid = 0, high = arr.length - 1;
+
+        while(mid <= high) {
+            if(arr[mid] == 0){
+                int temp = arr[low];
+                arr[low] = arr[mid];
+                arr[mid] = temp;
+                low++;
+                mid++;
+            }
+            else if(arr[mid] == 1){
+                mid++;
+            }
+            else {                                  // arr[mid] == 2
+                int temp = arr[high];
+                arr[high] = arr[mid];
+                arr[mid] = temp;
+                high--;
+            }
+        }
+
+    }
     
 
     // Printing our results:
@@ -62,6 +86,7 @@ public class Sort012 {
 
         int[] arr1 = {2, 0, 2, 1, 1, 0};
         int[] arr2 = {2, 0, 2, 1, 1, 0};
+        int[] arr3 = {2, 0, 2, 1, 1, 0, 1, 0, 2, 1, 0};
 
         System.out.println("Brute Force (Bubble Sort): ");
         bruteForce(arr1);
@@ -70,5 +95,9 @@ public class Sort012 {
         System.out.println("Better Approach (Counting Sort): ");
         betterApproach(arr2);
         printArray(arr2);
+
+        System.out.println("Optimal Approach (Dutch National Flag Algorithm): ");
+        optimalApproach(arr3);
+        printArray(arr3);
     }
 }
