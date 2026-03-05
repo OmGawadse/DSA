@@ -6,6 +6,13 @@
     "configurations": [
         {
             "type": "java",
+            "name": "ContainsDuplicateII",
+            "request": "launch",
+            "mainClass": "ContainsDuplicateII",
+            "projectName": "DSA- Sheet_b3e02aa4"
+        },
+        {
+            "type": "java",
             "name": "ContainsDuplicate",
             "request": "launch",
             "mainClass": "ContainsDuplicate",
