@@ -1,3 +1,7 @@
+// 51. LeetCode Problem: 219. Contains Duplicate II
+// Brute Force Approach: O(n^2) Time Complexity, O(1) Space Complexity.
+// Optimal Approach (HashMap): O(n) Time Complexity, O(n) Space Complexity.
+
 import java.util.HashMap;
 
 public class ContainsDuplicateII {
