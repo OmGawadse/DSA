@@ -1,3 +1,4 @@
+import java.util.HashMap;
 
 public class ContainsDuplicateII {
 
@@ -12,9 +13,29 @@ public class ContainsDuplicateII {
                 }
             }
         }
-
         return false;
     }
+
+    // Optimal Approach (HashMap)
+    public static boolean containsNearbyDuplicateOptimal(int[] nums, int k) {
+
+        HashMap<Integer, Integer> map = new HashMap<>();
+
+        for(int i = 0; i < nums.length; i++) {
+
+            if(map.containsKey(nums[i])) {
+
+                int oldIndex = map.get(nums[i]);
+
+                if(i - oldIndex <= k) {
+                    return true;
+                }
+            }
+            map.put(nums[i], i);          // Add & Update the index of the current number in the map.
+        }
+        return false;
+    }
+
 
 
     // ✅ Main method (Program entry point)
@@ -24,8 +45,9 @@ public class ContainsDuplicateII {
         int k = 3;
 
         System.out.println("Brute Force Result: " + containsNearbyDuplicateBrute(nums, k));
-       
+        System.out.println("Optimal Result: " + containsNearbyDuplicateOptimal(nums, k));
     }
 }
+
     
 
