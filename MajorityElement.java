@@ -39,7 +39,26 @@ public class MajorityElement {
         return -1;
     }
 
+    // 3. Optimal Approach using Moore's Voting Algorithm (O(n) Time | O(1) Space)
+    public static int majorityElementOptimal(int[] arr) {
+        int count = 0;
+        int candidate = 0;
 
+        for (int i = 0; i < arr.length; i++) {
+            if (count == 0) {
+                candidate = arr[i];
+            }
+            
+            if (arr[i] == candidate) {
+                count++;
+            } else {
+                count--;
+            }
+        }
+        return candidate;
+    }
+
+    // Main method to run and test in VS Code
     public static void main(String[] args) {
         // Test Case
         int[] arr = {2, 2, 1, 1, 1, 2, 2}; 
@@ -54,6 +73,6 @@ public class MajorityElement {
         // Executed with your requested print format
         System.out.println("1. The Majority Element is (Brute Force): " + majorityElementBrute(arr));
         System.out.println("2. The Majority Element is (Better): " + majorityElementBetter(arr));
- 
+        System.out.println("3. The Majority Element is (Optimal): " + majorityElementOptimal(arr));
     }
 }
