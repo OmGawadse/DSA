@@ -6,6 +6,13 @@
     "configurations": [
         {
             "type": "java",
+            "name": "BuyandSellStock",
+            "request": "launch",
+            "mainClass": "BuyandSellStock",
+            "projectName": "DSA- Sheet_b3e02aa4"
+        },
+        {
+            "type": "java",
             "name": "MaximumSubarraySum",
             "request": "launch",
             "mainClass": "MaximumSubarraySum",
