@@ -4,6 +4,7 @@
 KADANE'S ALGORITHM: Optimal Approach - Logic Explanation:   
                         Philosophy	"Don't carry a negative balance."
                         The "Bankruptcy" Rule	If currsum < 0, drop it and start fresh at 0.
+                        
 Imagine you are walking down a street picking up bags of money.
 Positive numbers are cash. Negative numbers are debt.
 ----->"As I walk, I keep a running total of the cash in my hand. 
