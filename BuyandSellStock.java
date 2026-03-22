@@ -7,9 +7,11 @@ public class BuyandSellStock {
 public static int maxProfit(int[] prices) {
 
         int maxProfit = 0; // This stores our best deal so far
-        int minPrice = Integer.MAX_VALUE; // Assume the first day is the cheapest to start or the lowest price we've encountered so far.
-
-        // We start from the second day (index 1)
+        int minPrice = Integer.MAX_VALUE; // The lowest price we've encountered so far.        
+        // ALTERNATIVE: We can assume the first day is the cheapest to start:
+        // int minPrice = prices[0]; 
+        // And then start the loop from the next index: for (int i = 1; i < prices.length; i++)
+        
         for (int i = 0; i < prices.length; i++) {
 
             // 1. Update our minPrice if today's price is even cheaper. 
