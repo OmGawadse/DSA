@@ -15,9 +15,10 @@ public static int maxProfit(int[] prices) {
         for (int i = 0; i < prices.length; i++) {
 
             // 1. Update our minPrice if today's price is even cheaper. 
-            if (prices[i] < minPrice) {
-                minPrice = prices[i];
-            }
+            if (prices[i] < minPrice) { // If our today's price is smaller than our previous prices. There is simply no profit.
+                minPrice = prices[i];   // Will simply keep track of the lowest price for the future sales
+            }                        
+                                        // And if today's prices are greater than the previous once we can sell it and make profit.
 
             // 2. Calculate the max profit using Math.max()
             // Compares current maxProfit against the todaysProfit if there is a deal today.
