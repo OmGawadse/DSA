@@ -41,9 +41,28 @@ public class RearrangeBySign {
             }
         }
         */
-        
-        
         return arr;   
+    }
+
+    public static int[] OptimalApproach(int[] nums) {
+        int n = nums.length;
+        int[] ans = new int[n]; // Our single result array
+        
+        int posIndex = 0; // Starts at the first even spot
+        int negIndex = 1; // Starts at the first odd spot
+        
+        // A single pass through the original array
+        for (int i = 0; i < n; i++) {
+            if (nums[i] > 0) {
+                ans[posIndex] = nums[i]; // Place the positive number
+                posIndex += 2;           // Jump to the next even index
+            } else {
+                ans[negIndex] = nums[i]; // Place the negative number
+                negIndex += 2;           // Jump to the next odd index
+            }
+        }
+        
+        return ans;
     }
 
     public  static void main(String args[]){
@@ -55,5 +74,8 @@ public class RearrangeBySign {
 
         int[] result = BruteForceApproach(arr);
         System.out.println("Rearranged Array: " + Arrays.toString(result));
+
+        int[] optimalResult = OptimalApproach(arr);
+        System.out.println("Rearranged Array (Optimal): " + Arrays.toString(optimalResult));
     }
 }
