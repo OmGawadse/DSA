@@ -24,8 +24,10 @@ public class RearrangeBySign {
 
 // step 2: Merge them back into the original array in the desired format(+,-,+,-,+,-,+....).
         for (int i = 0; i < n / 2; i++) {
-            arr[2 * i] = pos[i];       // Positives go to even indices: 0, 2, 4...
-            arr[2 * i + 1] = neg[i];   // Negatives go to odd indices: 1, 3, 5...
+            arr[2 * i] = pos[i];       // in pos array, elements are present: 0, 1, 2,... but we want to place them at even indices: 0, 2, 4,...
+                                       // wee ca see a pattern here.... which can be represented as 2*i where i is the index in the pos array i.e even indices
+            arr[2 * i + 1] = neg[i];   // in neg array, elements are present: 0, 1, 2,... but we want to place them at odd indices: 1, 3, 5,...
+                                        // wee ca see a pattern here.... which can be represented as 2*i + 1 where i is the index in the neg array i.e odd indices
         }
         
         
@@ -61,7 +63,7 @@ public class RearrangeBySign {
                 negIndex += 2;           // Jump to the next odd index
             }
         }
-        
+
         return ans;
     }
 
