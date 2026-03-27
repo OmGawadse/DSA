@@ -19,6 +19,16 @@ public class RemoveElement {
                 k++;
             }            
         }return k;
+
+// If we want return the modified array instead of just k.
+        /* 
+        // Step 2: Fill remaining positions with val (or any marker)
+        for (int i = k; i < nums.length; i++) {
+            nums[i] = val;
+        }
+
+        return nums; // return full array
+        */
     }
 
     public static void main(String[] args) {
