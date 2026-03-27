@@ -1,4 +1,9 @@
-// 55. Leetcode 
+// 55. Leetcode: 2149. Rearrange Array Elements by Sign.
+// Brute Force Approach: O(n) time complexity and O(n) space complexity.
+// Optimal Approach: O(n) time complexity and O(n) space complexity.
+// for optimal approach we are using a single array to store the result instead of using two separate arrays for positive and negative elements. 
+// We are maintaining two pointers, one for even indices (posIndex) and one for odd indices (negIndex). 
+// As we iterate through the original array, we place positive numbers at even indices and negative numbers at odd indices in the result array.
 
 import java.util.Arrays;
 
