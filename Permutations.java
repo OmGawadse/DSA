@@ -1,4 +1,4 @@
-// LeetCode 46: Permutations (User Input Version)
+// 57. Permutations LeetCode 46: Permutations - Backtracking Approach
 
 import java.util.*;
 
@@ -11,7 +11,7 @@ public class Permutations {
         List<List<Integer>> result = new ArrayList<>();
 
         // Start backtracking from index 0
-        solve(0, nums, result);
+        solve(0, nums, result); 
 
         return result;
     }
@@ -39,7 +39,9 @@ public class Permutations {
             return; // go back (backtracking starts here)
         }
 
-        // 🔁 TRY ALL POSSIBILITIES FOR CURRENT INDEX
+
+        // If index is not at the end, we need to try all possibilities for this index:
+        // -----> TRY ALL POSSIBILITIES FOR CURRENT INDEX
         for (int i = index; i < nums.length; i++) {
 
             // 🔹 STEP 1: FIX ELEMENT
