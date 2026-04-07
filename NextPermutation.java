@@ -15,7 +15,7 @@ public class NextPermutation {
             }
         }
 
-        // STEP 2: If no breakpoint found
+        // If no breakpoint found
         // That means array is in descending order (last permutation)
         // So just reverse whole array to get smallest permutation
         if (idx == -1) {
@@ -23,12 +23,11 @@ public class NextPermutation {
             return;
         }
 
-        // STEP 3: Find next greater element from right side
+        // STEP 2: Find next greater element from right side
         // Find element just greater than nums[idx]
         for (int i = n - 1; i > idx; i--) {
             if (nums[i] > nums[idx]) {
 
-                // STEP 4: Swap
                 // Swap nums[idx] with nums[i]
                 int temp = nums[i];
                 nums[i] = nums[idx];
@@ -38,7 +37,7 @@ public class NextPermutation {
             }
         }
 
-        // STEP 5: Reverse the right part (idx+1 to end)
+        // STEP 3: Reverse the right part (idx+1 to end)
         // This makes the sequence smallest after idx
         reverse(nums, idx + 1, n - 1);
     }
