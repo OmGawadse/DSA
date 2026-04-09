@@ -6,6 +6,13 @@
     "configurations": [
         {
             "type": "java",
+            "name": "LongestConsecutiveSequence",
+            "request": "launch",
+            "mainClass": "LongestConsecutiveSequence",
+            "projectName": "DSA- Sheet_b3e02aa4"
+        },
+        {
+            "type": "java",
             "name": "LeadersInArray",
             "request": "launch",
             "mainClass": "LeadersInArray",
