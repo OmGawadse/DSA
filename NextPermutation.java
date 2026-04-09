@@ -1,3 +1,15 @@
+// 58. Leetcode- 31 Next Permutation.
+// Time Complexity: O(n).
+// Space Complexity: O(1).
+// Approach/ Logic:
+// Step 1: Breakpoint :
+// We will find the rightmost pair of indices (idx, idx+1) where nums[idx] < nums[idx+1]. 
+// If no such index exists, we reverse the entire array to get the smallest permutation. 
+// // Step 2: SWAP :
+// If such an index is found, we will find the rightmost element that is greater than nums[idx] and swap them.
+// Step 3: REVERSE : 
+// Finally, we reverse the subarray to the right of idx to get the next permutation.
+
 import java.util.*;
 
 public class NextPermutation {
