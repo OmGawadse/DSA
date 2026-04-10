@@ -2,7 +2,7 @@
 // Time Complexity: O(n^2) for brute force approach.
 // Time Complexity: O(n) for optimal approach using HashSet.
 
-import java.util.Arrays;    
+import java.util.*;    
 public class LongestConsecutiveSequence {
 
     // Method inside a method is not allowed in Java, so we define linearSearch as a separate method.
@@ -38,7 +38,8 @@ public class LongestConsecutiveSequence {
     }
 
     ///////////////////////////////////////////////////////////////////////////////////////////////// Better Approach
-    
+    // Time Complexity: O(n log n) due to sorting, O(1) for space complexity.
+
     public static int BetterApproach(int[] arr) {
         int n = arr.length;
 
@@ -62,15 +63,56 @@ public class LongestConsecutiveSequence {
         return longest; // return answer
     }
 
+    ///////////////////////////////////////////////////////////////////////////////////////////////// Optimal Approach
+    // Time Complexity: O(n) due to HashSet operations, O(n) for space complexity due to HashSet storage.
+
+    public static int OptimalApproach(int[] arr){
+    int n = arr.length;
+    int longest = 1;
+
+    if(n == 0) return 0;  // edge case: empty array
+
+  
+    HashSet<Integer> set = new HashSet<>();
+
+    // Step 1: Add elements to set
+    for(int i = 0; i < n; i++){
+        set.add(arr[i]);
+    }
+
+    // Step 2: Traverse set
+    for(int num : set){
+
+        // Step 3: Check if start of sequence
+        if(!set.contains(num - 1)){
+
+            int x = num;
+            int count = 1;
+
+            // Step 4: Expand sequence
+            while(set.contains(x + 1)){
+                x++;
+                count++;
+            }
+
+            // Step 5: Update longest
+            longest = Math.max(longest, count);
+        }
+    }
+
+    return longest;
+}
+
     public static void main(String[] args) {
 
         int[] arr = {10, 5, 12, 3, 55, 4, 11, 2, 1, 6};
 
         int result = BruteForceApproach(arr);
         int resultB = BetterApproach(arr);  
+        int resultO = OptimalApproach(arr);
 
         System.out.println("Longest Consecutive Length Using Brute Force : " + result);
         System.out.println("Longest Consecutive Length Using Better Approach : " + resultB);
-        
+        System.out.println("Longest Consecutive Length Using Optimal Approach : " + resultO);
     }
 }
