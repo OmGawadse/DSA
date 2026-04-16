@@ -60,20 +60,62 @@ public class SetMatrixZeroes {
         }
     }
 
-    public static void main(String[] args) {
+    // BETTER APPROACH
+// Time Complexity: O(n * m)
+// Space Complexity: O(n + m)
 
-        int[][] arr = {
-            {1, 1, 1},
-            {1, 0, 1},
-            {1, 1, 1}
-        };
+public static void BetterApproach(int[][] arr) {
 
-        System.out.println("Before:");
-        printMatrix(arr);
+    int n = arr.length;    // total rows
+    int m = arr[0].length; // total columns
 
-        BruteForceApproach(arr);
+    int[] row = new int[n]; // to mark rows
+    int[] col = new int[m]; // to mark columns
 
-        System.out.println("\nAfter:");
-        printMatrix(arr);
+    // Step 1: Traverse matrix and mark rows & columns
+    for(int i = 0; i < n; i++){
+        for(int j = 0; j < m; j++){
+            if(arr[i][j] == 0){
+                row[i] = 1; // mark this row
+                col[j] = 1; // mark this column
+            }
+        }
     }
+
+    // Step 2: Traverse again and set values to 0
+    for(int i = 0; i < n; i++){
+        for(int j = 0; j < m; j++){
+            
+            // if row OR column is marked → make it 0
+            if(row[i] == 1 || col[j] == 1){
+                arr[i][j] = 0;
+            }
+        }
+    }
+}
+public static void main(String[] args) {
+
+    int[][] arr1 = {
+        {1, 1, 1},
+        {1, 0, 1},
+        {1, 1, 1}
+    };
+
+    int[][] arr2 = {
+        {1, 1, 1},
+        {1, 0, 1},
+        {1, 1, 1}
+    };
+
+    System.out.println("Brute Force:");
+    printMatrix(arr1);
+    BruteForceApproach(arr1);
+    System.out.println("After Brute Force:");
+    printMatrix(arr1);
+
+    System.out.println("\nBetter Approach:");
+    printMatrix(arr2);
+    BetterApproach(arr2);
+    System.out.println("After Better Approach:");
+    printMatrix(arr2);
 }
