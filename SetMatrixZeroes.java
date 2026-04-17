@@ -1,9 +1,10 @@
 // 61. Leetcode 73. Set Matrix Zeroes
 // Time Complexity for Brute Force Approach: O(n*m*(n+m)).
+// Time Complexity for Better Approach: O(n*m).
 
 public class SetMatrixZeroes {
 
-    // MAIN FUNCTION (Brute Force)
+    // Brute Force Approach: convert element to -1 & then back to 0.
     public static void BruteForceApproach(int[][] arr) {
 
         int n = arr.length;    // total rows
@@ -14,13 +15,11 @@ public class SetMatrixZeroes {
 
                 // if we find 0 mark entire row and column as -1 (except 0)
                 if(arr[i][j] == 0){
-
-                    markRow(arr, i, m);
-                    markColumn(arr, j, n);
+                    markRow(arr, i, m);      // |
+                    markColumn(arr, j, n);   // _
                 }
             }
         }
-
         // change all -1 to 0
         for(int i = 0; i < n; i++){
             for(int j = 0; j < m; j++){
@@ -34,14 +33,12 @@ public class SetMatrixZeroes {
     // mark entire row as -1 (except 0)
     public static void markRow(int[][] arr, int i, int m) {
     for(int k = 0; k < m; k++){   // using k here
-        if(arr[i][k] != 0){
+        if(arr[i][k] != 0){       // Any other element apart from 0 which we want to convert it to 0.
             arr[i][k] = -1; // mark for later
         }
     }
 }
-
-
-    // mark entire column as -1 (except 0)
+  // mark entire column as -1 (except 0)
     public static void markColumn(int[][] arr, int j, int n) {
     for(int k = 0; k < n; k++){   // using k here
         if(arr[k][j] != 0){
@@ -60,19 +57,18 @@ public class SetMatrixZeroes {
         }
     }
 
-    // BETTER APPROACH
-// Time Complexity: O(n * m)
-// Space Complexity: O(n + m)
+// BETTER APPROACH: 
+// Intuition: He was simply assume two separate Array. Which will help us to keep track of the elements that we want to change.
 
 public static void BetterApproach(int[][] arr) {
 
     int n = arr.length;    // total rows
     int m = arr[0].length; // total columns
 
-    int[] row = new int[n]; // to mark rows
-    int[] col = new int[m]; // to mark columns
+    int[] row = new int[n]; // Create Array to mark rows
+    int[] col = new int[m]; // Create Array to mark columns
 
-    // Step 1: Traverse matrix and mark rows & columns
+    // Traverse matrix and mark rows & columns
     for(int i = 0; i < n; i++){
         for(int j = 0; j < m; j++){
             if(arr[i][j] == 0){
@@ -82,7 +78,7 @@ public static void BetterApproach(int[][] arr) {
         }
     }
 
-    // Step 2: Traverse again and set values to 0
+    // Traverse again and set values to 0
     for(int i = 0; i < n; i++){
         for(int j = 0; j < m; j++){
             
@@ -93,29 +89,28 @@ public static void BetterApproach(int[][] arr) {
         }
     }
 }
+
 public static void main(String[] args) {
 
-    int[][] arr1 = {
+    int[][] arr = {
         {1, 1, 1},
         {1, 0, 1},
         {1, 1, 1}
     };
 
-    int[][] arr2 = {
+    BruteForceApproach(arr);
+        System.out.println("Answer for Brute Force Approaach: ");
+    printMatrix(arr);
+
+    arr = new int[][] {
         {1, 1, 1},
         {1, 0, 1},
-        {1, 1, 1}
+        {1, 1, 1},
+        {0, 0, 1},
     };
 
-    System.out.println("Brute Force:");
-    printMatrix(arr1);
-    BruteForceApproach(arr1);
-    System.out.println("After Brute Force:");
-    printMatrix(arr1);
-
-    System.out.println("\nBetter Approach:");
-    printMatrix(arr2);
-    BetterApproach(arr2);
-    System.out.println("After Better Approach:");
-    printMatrix(arr2);
+    BetterApproach(arr);
+    System.out.println("Answer for Better Approaach: ");
+    printMatrix(arr);
+}
 }
