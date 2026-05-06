@@ -1,3 +1,8 @@
+// 63. Spiral Matrix
+// Given an m x n matrix, return all elements of the matrix in spiral order.
+// Time Complexity: O(n*m) where n is the number of rows and m is the number of columns.
+// Space Complexity: O(1); list is used to store the spiral order, so O(n*m) in worst case when all elements are stored in the list.
+
 public class SpiralMatrix {
 
     public static void printSpiral(int[][] matrix) {
