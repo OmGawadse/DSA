@@ -6,6 +6,13 @@
     "configurations": [
         {
             "type": "java",
+            "name": "CountSubarray_SumEquals_Zero",
+            "request": "launch",
+            "mainClass": "CountSubarray_SumEquals_Zero",
+            "projectName": "DSA- Sheet_b3e02aa4"
+        },
+        {
+            "type": "java",
             "name": "SpiralMatrix",
             "request": "launch",
             "mainClass": "SpiralMatrix",
