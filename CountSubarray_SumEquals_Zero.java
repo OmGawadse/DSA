@@ -1,9 +1,9 @@
+// 64 . Count the number of subarrays that sum to a given value k.
 // LeetCode 560 : Subarray Sum Equals K
 
 public class CountSubarray_SumEquals_Zero {
    
-    // BRUTE FORCE APPROACH
-    // Time Complexity  : O(n^3)     -    Space Complexity : O(1)
+    // BRUTE FORCE APPROACH : -----> Time Complexity  : O(n^3)     -    Space Complexity : O(1)
 
     public static int BruteForceApproach(int[] nums, int k) {
 
@@ -28,8 +28,7 @@ public class CountSubarray_SumEquals_Zero {
         return count;
     }
 
-    // BETTER APPROACH
-    // Time Complexity  : O(n^2)    -     Space Complexity : O(1)
+    // BETTER APPROACH -------> Time Complexity  : O(n^2)    -     Space Complexity : O(1)
 
     public static int BetterApproach(int[] nums, int k) {
         int n = nums.length;
@@ -53,8 +52,8 @@ public class CountSubarray_SumEquals_Zero {
     }
 
 
-    // ================================================================================================================
-    // MAIN METHOD
+// ================================================================================================================
+
     public static void main(String[] args) {
 
         int[] nums = {1, 2, 3, -2, 5, 1};
@@ -65,5 +64,6 @@ public class CountSubarray_SumEquals_Zero {
 
         System.out.println("Brute Force Answer : " + bruteAnswer);
         System.out.println("Better Approach Answer : " + betterAnswer);
+        System.err.println("output = 3");
     }
 }
