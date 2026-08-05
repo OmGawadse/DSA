@@ -34,6 +34,7 @@ public class Pascal_Triangle {
         return ans;
     }
 
+    // Question 3 : Print the whole Pascal Triangle.
 
     public static void main(String args[]){
         
@@ -48,5 +49,7 @@ public class Pascal_Triangle {
         for(int i=1; i<=row; i++){
             System.out.print(getRowElement(row, i) + " ");
         }
+
+        
     }    
 }
