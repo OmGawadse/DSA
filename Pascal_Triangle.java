@@ -9,7 +9,7 @@ import java.util.List;
 
 public class Pascal_Triangle {
 
-    // Question 1 : Find the element at given row and column
+    // Question 1 : Find the element at given row and column: TC = 
     public static int getElement(int row, int col){
         return funcNcR(row-1, col-1);
     }
@@ -39,10 +39,7 @@ public class Pascal_Triangle {
 
     // Question 3 : Print the whole Pascal Triangle.
     public static List<List<Integer>> PascalTriangle(int N){
-        return funcForEntireTriangle(N);
-    }
-    // Lets write the Function:
-    public static List<List<Integer>> funcForEntireTriangle(int N){
+        
         List<List<Integer>> result = new ArrayList<>();
 
         for (int i = 0; i < N; i++) {
@@ -93,7 +90,5 @@ public class Pascal_Triangle {
         int N = 5;
         List<List<Integer>> answer = PascalTriangle(N);
         System.out.println(answer);
-
-        
     }    
 }
