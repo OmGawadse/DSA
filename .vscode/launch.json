@@ -6,6 +6,13 @@
     "configurations": [
         {
             "type": "java",
+            "name": "Pascal_Triangle",
+            "request": "launch",
+            "mainClass": "Pascal_Triangle",
+            "projectName": "DSA- Sheet_b3e02aa4"
+        },
+        {
+            "type": "java",
             "name": "CountSubarray_SumEquals_Zero",
             "request": "launch",
             "mainClass": "CountSubarray_SumEquals_Zero",
