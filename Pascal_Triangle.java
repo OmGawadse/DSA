@@ -4,6 +4,9 @@
 // 2. Print the nth Row of Pascal Triangle.
 // 3. Print the whole Pascal Triangle.
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class Pascal_Triangle {
 
     // Question 1 : Find the element at given row and column
@@ -35,6 +38,42 @@ public class Pascal_Triangle {
     }
 
     // Question 3 : Print the whole Pascal Triangle.
+    public static List<List<Integer>> PascalTriangle(int N){
+        return funcForEntireTriangle(N);
+    }
+    // Lets write the Function:
+    public static List<List<Integer>> funcForEntireTriangle(int N){
+        List<List<Integer>> result = new ArrayList<>();
+
+        for (int i = 0; i < N; i++) {
+
+            List<Integer> row = new ArrayList<>();
+
+            // Every row starts with 1
+            row.add(1);
+
+            if (i > 0) {
+
+                // Get the previous row
+                List<Integer> prevRow = result.get(i - 1);
+
+                // Calculate the middle elements
+                for (int j = 1; j < i; j++) {
+                    int x = prevRow.get(j - 1) + prevRow.get(j);
+                    row.add(x);
+                }
+
+                // Every row after the first ends with 1
+                row.add(1);
+            }
+
+            // Add the completed row to the result
+            result.add(row);
+        }
+
+        return result;
+    }
+
 
     public static void main(String args[]){
         
@@ -49,6 +88,11 @@ public class Pascal_Triangle {
         for(int i=1; i<=row; i++){
             System.out.print(getRowElement(row, i) + " ");
         }
+
+        // Question 3 : Print the whole Pascal Triangle.
+        int N = 5;
+        List<List<Integer>> answer = PascalTriangle(N);
+        System.out.println(answer);
 
         
     }    
