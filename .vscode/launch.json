@@ -6,6 +6,13 @@
     "configurations": [
         {
             "type": "java",
+            "name": "ThreeSum",
+            "request": "launch",
+            "mainClass": "ThreeSum",
+            "projectName": "DSA- Sheet_b3e02aa4"
+        },
+        {
+            "type": "java",
             "name": "MajorityElementII",
             "request": "launch",
             "mainClass": "MajorityElementII",

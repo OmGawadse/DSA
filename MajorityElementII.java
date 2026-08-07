@@ -48,9 +48,7 @@ public class MajorityElementII {
                 map.put(nums[i], 1);
             }
         }
-            //if (map.containsKey(nums[i])) {
             //   map.put(nums[i], map.getOrDefault(nums[i], 0) + 1);
-            // }
 
         // Step 2: Traverse the HashMap.
         // If an element appears more than n/3 times,
@@ -64,9 +62,12 @@ public class MajorityElementII {
     }
 
     
+
+    
     public static void main(String[] args) {
 
-        int[] nums = {3, 2, 3};
+        int [] nums = {3, 2, 3};
+        //int[] nums = {3, 2, 3,2,2,3,1,1,5}; add equal to = in last if condition
 
         List<Integer> result = BruteForce(nums);
 
@@ -75,6 +76,7 @@ public class MajorityElementII {
         List<Integer> answer = BetterApproach(nums);
         System.out.println("Majority Elements: " + answer);
 
+        
         
         }
 }
