@@ -36,14 +36,15 @@ public class ThreeSum {
         return new ArrayList<>(ans);
     }
 
-    public static List<List<Integer>> BetterApproach(int[] nums) { // O(n^2) Time | O(n) Space
+
+    // HashSet Approach : TC: O(n^2) | SC: O(n)
+    public static List<List<Integer>> BetterApproach(int[] nums) {
  
         Set<List<Integer>> ans = new HashSet<>();
 
         // We need to choose the first two numbers. The third number will be searched using HashSet.
         for (int i = 0; i < nums.length; i++) {
 
-           
             Set<Integer> set = new HashSet<>();  // This HashSet stores numbers we have already seen
 
             for (int j = i + 1; j < nums.length; j++) {
@@ -52,7 +53,6 @@ public class ThreeSum {
                 // previously we did this  ---> nums[i] + nums[j] + third = 0  ........ Now by adjusting ----> third = -(nums[i] + nums[j])
 
                 int third = -(nums[i] + nums[j]);
-
 
                 if (set.contains(third)) { // for first occurence the third will not be present in the set, but for second occurence it will be present in the set. Hence we can find the triplet.
 
@@ -85,6 +85,8 @@ public class ThreeSum {
 
         List<List<Integer>> answer = BetterApproach(nums);
         System.out.println(answer);
+
+
 
     }
 }
