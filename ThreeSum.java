@@ -1,7 +1,5 @@
 // 67 . Three Sum
 import java.util.*;
-
-
 public class ThreeSum {
 
     public static List<List<Integer>> BruteForce(int[] nums) { // O(n^3) Time | O(n) Space
@@ -32,7 +30,6 @@ public class ThreeSum {
                 }
             }
         }
-
         return new ArrayList<>(ans);
     }
 
@@ -75,6 +72,59 @@ public class ThreeSum {
         return new ArrayList<>(ans);
     }
 
+    // Two pointer Approach. we will be reducing just SC by ignoring the loop for HashSet. We will be using the sorted array to avoid duplicates.
+    // TC: O(n^2) | SC: O(1)
+    public static List<List<Integer>> OptimalApproach(int[] nums) {
+        int n = nums.length;
+        List<List<Integer>> ans = new ArrayList<>();
+        Arrays.sort(nums); // Sort the array first. This will help us to avoid duplicates.
+
+        for (int i = 0; i < n - 2; i++) { // -2 because we need at least 3 numbers to form a triplet.
+
+            // If the current number is the same as the previous number, we would generate the same triplets again.
+            // So skip the duplicate.
+            if (i > 0 && nums[i] == nums[i - 1]) {
+                continue;
+            }
+
+            int left = i + 1;
+            int right = nums.length - 1;
+
+            while (left < right) {
+
+                int sum = nums[i] + nums[left] + nums[right];
+                if (sum == 0) {
+
+                    ans.add(Arrays.asList(nums[i], nums[left], nums[right]));
+
+                    // We already used these two numbers, so move both pointers.
+                    left++;
+                    right--;
+
+                    // Skip duplicate, we will keep moving the left pointer until we find a different number.
+                    while (left < right && nums[left] == nums[left - 1]) {
+                        left++;
+                    }
+
+                    // Skip duplicate, we will keep moving the right pointer until we find a different number.
+                    while (left < right && nums[right] == nums[right + 1]) {
+                        right--;
+                    }
+                }
+
+                // If sum is negative, we need a BIGGER number. So move left forward.
+                else if (sum < 0) {
+                    left++;
+                }
+
+                // If sum is positive, we need a SMALLER number. So move right backward.
+                else {
+                    right--;
+                }
+            }
+        }
+        return ans;
+    }
 
     public static void main(String[] args) {
 
@@ -86,7 +136,7 @@ public class ThreeSum {
         List<List<Integer>> answer = BetterApproach(nums);
         System.out.println(answer);
 
-
-
+        List<List<Integer>> result1 = OptimalApproach(nums);
+        System.out.println(result1);
     }
 }
