@@ -1,9 +1,10 @@
 // 67 . Three Sum
+// Return all the triplets [nums[i], nums[j], nums[k]] such that i != j, i != k, and j != k, and nums[i] + nums[j] + nums[k] == 0.
+// Notice that the solution set must not contain duplicate triplets.
 import java.util.*;
 public class ThreeSum {
 
     public static List<List<Integer>> BruteForce(int[] nums) { // O(n^3) Time | O(n) Space
-
         int n = nums.length;
 
         Set<List<Integer>> ans = new HashSet<>(); // ans- Set containing Lists of Integers. Also SET To avoid Duplicates.
@@ -15,17 +16,14 @@ public class ThreeSum {
                     if (nums[i] + nums[j] + nums[k] == 0) {
 
                         List<Integer> temp = new ArrayList<>();
-
                         temp.add(nums[i]);
                         temp.add(nums[j]);
                         temp.add(nums[k]);
 
                         // Sort so duplicate triplets become identical  // [-1, 1, 0] & [0, -1, 1] are same triplets, 
                                                                         // but Java sees them as different lists. Hence we sue Collections.sort
-                        Collections.sort(temp);
-
-                        // HashSet removes duplicate triplets
-                        ans.add(temp);
+                        Collections.sort(temp); 
+                        ans.add(temp); // HashSet removes duplicate triplets
                     }
                 }
             }
@@ -81,8 +79,7 @@ public class ThreeSum {
 
         for (int i = 0; i < n - 2; i++) { // -2 because we need at least 3 numbers to form a triplet.
 
-            // If the current number is the same as the previous number, we would generate the same triplets again.
-            // So skip the duplicate.
+            // If the current number is the same as the previous number, we would generate the same triplets again. So skip the duplicate.
             if (i > 0 && nums[i] == nums[i - 1]) {
                 continue;
             }
