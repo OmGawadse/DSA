@@ -95,37 +95,7 @@ public class FourSum {
                 int left = j + 1;
                 int right = n - 1;
 
-                while (left < right) {
-
-                    long sum = (long) nums[i] + nums[j] + nums[left] + nums[right];     // Use long to avoid integer overflow
-
-                    if (sum == target) {
-                        ans.add(Arrays.asList(nums[i], nums[j], nums[left], nums[right]));
-                        left++;
-                        right--;
-
-                        // Skip duplicate left values
-                        while (left < right && nums[left] == nums[left - 1]) {
-                            left++;
-                        }
-
-                        // Skip duplicate right values
-                        while (left < right && nums[right] == nums[right + 1]) {
-                            right--;
-                        }
-
-                    } else if (sum < target) {
-                        left++;
-                    } else {
-                        right--;
-                    }
-                }
-            }
-        }
-        return ans;
-    }
-
-
+                
 
     public static void main(String[] args) {
 
