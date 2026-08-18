@@ -6,6 +6,13 @@
     "configurations": [
         {
             "type": "java",
+            "name": "Subarrays_with_XOR_K",
+            "request": "launch",
+            "mainClass": "Subarrays_with_XOR_K",
+            "projectName": "DSA- Sheet_b3e02aa4"
+        },
+        {
+            "type": "java",
             "name": "longestSubarraywithSumK",
             "request": "launch",
             "mainClass": "longestSubarraywithSumK",
