@@ -69,7 +69,8 @@ public class longestSubarraywithSumK {
                 map.put(sum, i);
             }
 
-            if(map.containsKey(sum-K)){
+            if(map.containsKey(sum-K)){       //Suppose sum = 9 and K = 3 then we will check if 9-3 = 6 is present in the map or not. 
+                // If it is present then we will get the index of 6 and subtract it from the current index to get the length of the subarray.
                 int len = i - map.get(sum-K);
                 maxlen = Math.max(maxlen, len);
             }
