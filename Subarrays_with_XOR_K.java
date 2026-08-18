@@ -12,7 +12,7 @@ public class Subarrays_with_XOR_K {
         for (int i = 0; i < n; i++) {
             for (int j = i; j < n; j++) {
                 int xor = 0;
-                for(int k = i; k<j; k++){
+                for(int k = i; k <= j; k++){
                     xor = xor ^ nums[k];
                 }
 
@@ -22,9 +22,28 @@ public class Subarrays_with_XOR_K {
                 }
             }
         }
-
         return count;
     }
+
+    public static int BetterApproach(int[] nums, int K) {
+        int n = nums.length;
+
+        int count = 0;
+        
+        for (int i = 0; i < n; i++) {
+            int xor = 0;
+            for(int j = i; j < n; j++){
+                xor = xor ^ nums[j];
+
+                // If XOR of current subarray is K, increase count
+                if (xor == K) {
+                    count++;
+                }
+            }
+        }
+        return count;
+    }
+    
 
     public static void main(String[] args) {
 
@@ -32,7 +51,9 @@ public class Subarrays_with_XOR_K {
         int k = 6;
 
         int result = BruteForceApproach(nums, k);
-
         System.out.println("Number of subarrays with XOR " + k + " = " + result);
+
+        int result2 = BetterApproach(nums, k);
+        System.out.println("Number of subarrays with XOR " + k + " = " + result2);
     }
 }
