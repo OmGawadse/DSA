@@ -47,32 +47,34 @@ public class longestSubarraywithSumK {
         return maxLen;
     }
 
+    // Prefix Sum + HashMap Approach
     // 3️ Optimal Approach - O(n)
     public static int optimalApproach(int[] arr, int K) {
+        int n = arr.length;
 
         HashMap<Integer, Integer> map = new HashMap<>();
+
         int sum = 0;
-        int maxLen = 0;
+        int maxlen = 0;
 
-        for (int i = 0; i < arr.length; i++) {
-
+        for(int i = 0; i< n; i++){
             sum += arr[i];
 
-            if (sum == K) {
-                maxLen = i + 1;
+            if(sum == K){
+                maxlen = i + 1;
             }
 
-            if (map.containsKey(sum - K)) {
-                int len = i - map.get(sum - K);
-                maxLen = Math.max(maxLen, len);
-            }
-
-            // store first occurrence only
-            if (!map.containsKey(sum)) {
+            //  we will be adding First occurence For Sure........
+            if(!map.containsKey(sum)){
                 map.put(sum, i);
             }
+
+            if(map.containsKey(sum-K)){
+                int len = i - map.get(sum-K);
+                maxlen = Math.max(maxlen, len);
+            }
         }
-        return maxLen;
+        return maxlen;
     }
 
     public static void main(String[] args) {
