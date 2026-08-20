@@ -1,41 +1,34 @@
 // 70. Merge Overlapping Intervals
 // Leetcode: 56
-
 import java.util.*;
 
 public class MergeOverlappingIntervals {
 
-    public static int[][] BruteForceApproach(int[][] intervals) {
+    public static int[][] OptimalApproach(int[][] intervals) {
 
         int n = intervals.length;
 
         List<int[]> ans = new ArrayList<>();
 
-        Arrays.sort(intervals, (a, b) -> Integer.compare(a[0], b[0])); // This is the way of sorting a 2D array in Java.
+        Arrays.sort(intervals, (a, b) -> Integer.compare(a[0], b[0]));
 
-        int start = intervals[0][0];  // Starting Value of 1st subarray/ interval.
-        int end = intervals[0][1];   // Ending value of 1st subarray/ interval.
+        int start = intervals[0][0];
+        int end = intervals[0][1];
 
         for (int i = 1; i < n; i++) {
 
             if (intervals[i][0] <= end) {
-                // current start <= previous end, of Overlapping happens. what about the ending part/value ?
-                // Lets check about the ending part: 
-                end = Math.max(end, intervals[i][1]); //if greater that previous end, Simply update it.
-            }
-
-            else {
-                // No overlap → So it can be a new Interval -> store the current interval.
+                end = Math.max(end, intervals[i][1]);
+            } else {
                 ans.add(new int[] {start, end});
 
-                start = intervals[i][0];      // Update the Start & End to Start a new interval.
+                start = intervals[i][0];
                 end = intervals[i][1];
             }
         }
-        // Add the last interval to the answer list bcoz there is no next interval to check for overlap.
+
         ans.add(new int[] {start, end});
 
-        // Convert my List of integer arrays into a 2D integer array
         return ans.toArray(new int[ans.size()][]);
     }
 
@@ -48,9 +41,8 @@ public class MergeOverlappingIntervals {
             {15, 18}
         };
 
-        int[][] result = BruteForceApproach(intervals);
+        int[][] result = OptimalApproach(intervals);
 
-        // Print the result
         for (int[] interval : result) {
             System.out.println(
                 "[" + interval[0] + ", " + interval[1] + "]"
