@@ -1,11 +1,12 @@
 // 70. Merge Overlapping Intervals
 // Leetcode: 56
+// Time Complexity: O(n log n), Space Complexity: O(1)
 
 import java.util.*;
 
 public class MergeOverlappingIntervals {
 
-    public static int[][] BruteForceApproach(int[][] intervals) {
+    public static int[][] OptimalApproach(int[][] intervals) {
 
         int n = intervals.length;
 
@@ -50,7 +51,7 @@ public class MergeOverlappingIntervals {
             {121, 237}
         };
 
-        int[][] result = BruteForceApproach(intervals);
+        int[][] result = OptimalApproach(intervals);
 
         // Print the result
         for (int[] interval : result) {
