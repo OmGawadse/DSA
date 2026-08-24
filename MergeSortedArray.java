@@ -17,7 +17,7 @@ public class MergeSortedArray {
         Arrays.sort(nums1);
     }
 
-    
+
     public static void BetterApproach(int[] nums1, int m, int[] nums2, int n) { // Time Complexity: O(m+n) and Space Complexity: O(m+n)
 
         int[] temp = new int[m + n];
@@ -59,10 +59,39 @@ public class MergeSortedArray {
         }
     }
 
+    public static void OptimalApproach(int[] nums1, int m, int[] nums2, int n) {
+
+    int i = m - 1;        // Points to the last actual element of nums1
+    int j = n - 1;        // Points to the last element of nums2
+    int k = m + n - 1;    // Points to the last position of nums1
+
+    // Compare elements from the end and place the larger element at position k
+    while (i >= 0 && j >= 0) {
+
+        if (nums1[i] > nums2[j]) {
+            nums1[k] = nums1[i];
+            i--;
+        } 
+        else {
+            nums1[k] = nums2[j];
+            j--;
+        }
+        k--;
+    }
+
+    // If elements are still left in nums2, copy them into nums1
+    while (j >= 0) {
+        nums1[k] = nums2[j];
+        j--;
+        k--;
+    }
+}
+
     public static void main(String[] args) {
 
         int[] nums1 = {1, 2, 3, 4, 0, 0, 0};
         int[] nums1Copy = {1, 2, 3, 4, 0, 0, 0};
+        int[] nums1Copy2 = {1, 2, 3, 4, 0, 0, 0};
 
         int m = 4;
 
@@ -74,5 +103,8 @@ public class MergeSortedArray {
 
         BetterApproach(nums1Copy, m, nums2, n);
         System.out.println("Better Approach: " + Arrays.toString(nums1Copy));
+
+        OptimalApproach(nums1Copy2, m, nums2, n);
+        System.out.println("Optimal Approach: " + Arrays.toString(nums1Copy2));
     }
 }
