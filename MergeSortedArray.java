@@ -17,8 +17,8 @@ public class MergeSortedArray {
         Arrays.sort(nums1);
     }
 
-
-    public static void BetterApproach(int[] nums1, int m, int[] nums2, int n) { // Time Complexity: O(m+n) and Space Complexity: O(m+n)
+    // Time Complexity: O(m+n) and Space Complexity: O(m+n)
+    public static void BetterApproach(int[] nums1, int m, int[] nums2, int n) { 
 
         int[] temp = new int[m + n];
 
@@ -58,6 +58,10 @@ public class MergeSortedArray {
             nums1[x] = temp[x];
         }
     }
+
+    // Two pointer approach: Start from the end of both arrays and fill nums1 from the back. 
+    // This way, we avoid overwriting elements in nums1 that we haven't processed yet.
+    // Time Complexity: O(m+n) and Space Complexity: O(1)
 
     public static void OptimalApproach(int[] nums1, int m, int[] nums2, int n) {
 
