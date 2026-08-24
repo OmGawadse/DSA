@@ -3,18 +3,22 @@
 import java.util.*;
 
 public class MergeSortedArray {
+    // “In the previous problems, we were creating and returning a new result, so the method had to return a value. 
+    // Here, nums1 is already provided as an input array with enough extra space, and the problem asks us to modify nums1 in-place. 
+    // Since arrays are mutable and the changes made inside the method are reflected in the original array, 
+    // there is no need to return the array. Therefore, I used void.”
 
-    public static void BruteForceApproach(int[] nums1, int m, int[] nums2, int n) {
+    public static void BruteForceApproach(int[] nums1, int m, int[] nums2, int n) { // Time Complexity: O((m+n)log(m+n)) & Space Complexity: O(1)
 
         // Copy nums2 into the empty positions of nums1
         for(int i = 0; i < n; i++) {
             nums1[m + i] = nums2[i];
         }
-
         Arrays.sort(nums1);
     }
 
-    public static void BetterApproach(int[] nums1, int m, int[] nums2, int n) {
+    
+    public static void BetterApproach(int[] nums1, int m, int[] nums2, int n) { // Time Complexity: O(m+n) and Space Complexity: O(m+n)
 
         int[] temp = new int[m + n];
 
