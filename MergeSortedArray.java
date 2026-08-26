@@ -12,9 +12,9 @@ public class MergeSortedArray {
 
         // Copy nums2 into the empty positions of nums1
         for(int i = 0; i < n; i++) {
-            nums1[m + i] = nums2[i];
+            nums1[m + i] = nums2[i]; 
         }
-        Arrays.sort(nums1);
+        Arrays.sort(nums1); 
     }
 
     // Time Complexity: O(m+n) and Space Complexity: O(m+n)
