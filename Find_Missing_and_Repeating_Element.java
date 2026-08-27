@@ -2,7 +2,7 @@
 
 public class Find_Missing_and_Repeating_Element {
 
-    public static int BruteForceApproach(int[] nums) {
+    public static int[] BruteForceApproach(int[] nums) {
         int n = nums.length;
         int missing = -1;
         int repeating = -1;
@@ -23,14 +23,15 @@ public class Find_Missing_and_Repeating_Element {
 
         //System.out.println("Missing: " + missing);
         //System.out.println("Repeating: " + repeating);
-        return missing;
+        return new int[]{missing, repeating};
     }
 
         public static void main(String args[]){
         int[] nums = {4, 3, 6, 2, 1, 1};
         
-        BruteForceApproach(nums);
-        
+        int[] result = BruteForceApproach(nums);
+        System.out.println("Missing: " + result[0]);
+        System.out.println("Repeating: " + result[1]);
     }
     
 }
