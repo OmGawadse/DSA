@@ -1,5 +1,6 @@
 // 72 . Find the missing and repeating element in an array of size n containing numbers from 1 to n. 
 // Brute Force Approach: O(n^2) time complexity and O(1) space complexity.
+// Better Approach: O(n) time complexity and O(n) space complexity.
 
 public class Find_Missing_and_Repeating_Element {
 
@@ -47,7 +48,7 @@ public class Find_Missing_and_Repeating_Element {
             freq[nums[i]]++;
         }
 
-        for(int i = 1; i < n; i++){
+        for(int i = 1; i <= n; i++){
             if(freq[i] == 0) missing = i;          // If the number appears 0 times, it is the missing number
             if(freq[i] > 1) repeating = i;         // If the number appears more than once, it is the repeating number
         }
