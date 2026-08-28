@@ -5,7 +5,7 @@
 public class Find_Missing_and_Repeating_Element {
 
     // We need to return two values: missing and repeating. So, we return an int array containing both values.
-    public static int[] BruteForceApproach(int[] nums) { 
+    public static int[] BruteForceApproach(int[] nums){ 
 
         int n = nums.length;
         int missing = -1;
@@ -29,7 +29,7 @@ public class Find_Missing_and_Repeating_Element {
     }
 
 
-    public static int[] BetterApproach(int[] nums) {
+    public static int[] BetterApproach(int[] nums){
         int n = nums.length;
         int missing = -1;
         int repeating = -1;
@@ -48,6 +48,40 @@ public class Find_Missing_and_Repeating_Element {
         return new int[]{missing, repeating};
     }
 
+    public static int[] OptimalApproach(int[] nums){
+        int n = nums.length;
+
+        long sumN = (long) n * (n + 1) / 2;                    // Sum of N natural numbers
+        long sqsumN = (long) n * (n + 1) * (2 * n + 1) / 6;  // Square sum of N natural numbers
+
+// Calculate the sum and square sum of array elements
+    long sum = 0;
+    long sqsum = 0;
+
+    for (int i = 0; i < n; i++) {
+        sum += nums[i];
+        sqsum += (long) nums[i] * nums[i];
+    }
+
+    // Now we can start forming our equations
+    long diff = sum - sumN;             // x - y = diff
+    long sqdiff = sqsum - sqsumN;       // x² - y² = sqdiff
+
+// x² - y² = (x - y)(x + y)
+// We already know x - y = diff
+// Therefore, x + y = sqdiff / diff
+    long sumxy = sqdiff / diff;
+
+// Now we have:
+// x - y = diff
+// x + y = sumxy
+
+    long repeating = (diff + sumxy) / 2;
+    long missing = sumxy - repeating;
+
+    return new int[]{(int) missing, (int) repeating};
+}
+
     public static void main(String args[]) {
 
         int[] nums = {4, 3, 6, 2, 1, 1};
@@ -59,5 +93,9 @@ public class Find_Missing_and_Repeating_Element {
         int[] result2 = BetterApproach(nums);
         System.out.println("Missing Number from the Sequence: " + result2[0]);       
         System.out.println("Repeating Number from the Sequence: " + result2[1]);
+
+        int[] result3 = OptimalApproach(nums);
+        System.out.println("Missing Number from the Sequence: " + result3[0]);       
+        System.out.println("Repeating Number from the Sequence: " + result3[1]);
     }
 }
