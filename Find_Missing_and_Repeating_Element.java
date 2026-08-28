@@ -54,33 +54,33 @@ public class Find_Missing_and_Repeating_Element {
         long sumN = (long) n * (n + 1) / 2;                    // Sum of N natural numbers
         long sqsumN = (long) n * (n + 1) * (2 * n + 1) / 6;  // Square sum of N natural numbers
 
-// Calculate the sum and square sum of array elements
-    long sum = 0;
-    long sqsum = 0;
+        // Calculate the sum and square sum of array elements
+        long sum = 0;
+        long sqsum = 0;
 
-    for (int i = 0; i < n; i++) {
-        sum += nums[i];
-        sqsum += (long) nums[i] * nums[i];
+        for (int i = 0; i < n; i++) {
+           sum += nums[i];
+           sqsum += (long) nums[i] * nums[i];
+        }
+
+         // Now we can start forming our equations
+        long diff = sum - sumN;             // x - y = diff
+        long sqdiff = sqsum - sqsumN;       // x² - y² = sqdiff
+
+        // x² - y² = (x - y)(x + y)
+        // We already know x - y = diff
+        // Therefore, x + y = sqdiff / diff
+        long sumxy = sqdiff / diff;
+
+    // Now we have:
+    // x - y = diff
+    // x + y = sumxy
+
+        long repeating = (diff + sumxy) / 2;
+        long missing = sumxy - repeating;
+
+        return new int[]{(int) missing, (int) repeating};
     }
-
-    // Now we can start forming our equations
-    long diff = sum - sumN;             // x - y = diff
-    long sqdiff = sqsum - sqsumN;       // x² - y² = sqdiff
-
-// x² - y² = (x - y)(x + y)
-// We already know x - y = diff
-// Therefore, x + y = sqdiff / diff
-    long sumxy = sqdiff / diff;
-
-// Now we have:
-// x - y = diff
-// x + y = sumxy
-
-    long repeating = (diff + sumxy) / 2;
-    long missing = sumxy - repeating;
-
-    return new int[]{(int) missing, (int) repeating};
-}
 
     public static void main(String args[]) {
 
