@@ -64,12 +64,12 @@ public class Find_Missing_and_Repeating_Element {
         }
 
         // Now we can start forming our equations
-        long diff = sum - sumN;             // x - y = diff
+        long diff = sum - sumN;             // x - y = diff --------> Therefor 1st equation............
         long sqdiff = sqsum - sqsumN;       // x² - y² = sqdiff
 
         // x² - y² = (x - y)(x + y)
         // We already know x - y = diff. Therefore, x + y = sqdiff / diff
-        long sumxy = sqdiff / diff;
+        long sumxy = sqdiff / diff;     // -----------> Therefor 1st equation............
 
         // Now we have: x - y = diff & x + y = sumxy
 

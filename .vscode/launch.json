@@ -6,6 +6,13 @@
     "configurations": [
         {
             "type": "java",
+            "name": "ReversePairs",
+            "request": "launch",
+            "mainClass": "ReversePairs",
+            "projectName": "DSA- Sheet_b3e02aa4"
+        },
+        {
+            "type": "java",
             "name": "Find_Missing_and_Repeating_Element",
             "request": "launch",
             "mainClass": "Find_Missing_and_Repeating_Element",
