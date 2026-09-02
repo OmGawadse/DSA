@@ -1,4 +1,4 @@
-// 72 . Find the missing and repeating element in an array of size n containing numbers from 1 to n. 
+// 73 . Find the missing and repeating element in an array of size n containing numbers from 1 to n. 
 // Brute Force Approach: O(n^2) time complexity and O(1) space complexity.
 // Better Approach: O(n) time complexity and O(n) space complexity.
 

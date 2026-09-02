@@ -1,8 +1,9 @@
-// 73 .
+// 74 . Reverse Pairs
 
 public class ReversePairs {
 
-    public static int reversePairs(int[] nums) {
+    // Time Complexity: O(n^2) & Space Complexity: O(1)
+    public static int BetterApproach(int[] nums) {
 
         int count = 0;
         int n = nums.length;
@@ -27,7 +28,7 @@ public class ReversePairs {
 
         int[] nums = {1, 3, 2, 3, 1};
 
-        int result = reversePairs(nums);
+        int result = BetterApproach(nums);
         System.out.println("Number of Reverse Pairs: " + result);
     }
 }
