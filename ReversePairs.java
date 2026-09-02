@@ -56,6 +56,32 @@ public class ReversePairs {
         return count;
     }
 
+     // merge() counts reverse pairs between the two sorted halves
+    // and then merges them into one sorted array.
+    public static int merge(int[] nums, int low, int mid, int high) {
+
+        int count = 0;
+
+        // j starts from the first element of the right half.
+        int j = mid + 1;
+
+        // Count reverse pairs.
+        for (int i = low; i <= mid; i++) {
+
+            // Check:
+            // nums[i] > 2 * nums[j]
+            //
+            // 2L is used to avoid integer overflow.
+            while (j <= high && (long) nums[i] > 2L * nums[j]) {
+                j++;
+            }
+
+            // All elements from mid + 1 to j - 1
+            // form reverse pairs with nums[i].
+            count += j - (mid + 1);
+        }
+
+
     public static void main(String[] args) {
 
         int[] nums = {1, 3, 2, 3, 1};
