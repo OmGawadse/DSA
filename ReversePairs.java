@@ -24,11 +24,46 @@ public class ReversePairs {
         return count;
     }
 
+    // Time Complexity: O(n log n) & Space Complexity: O(n)
+    public static int OptimalApproach(int[] nums) {
+        return divide(nums, 0, nums.length - 1);
+    }
+
+    // divide() splits the array into two halves.
+    // It recursively solves the left and right halves,
+    // and then calls merge() to count reverse pairs
+    // between the two halves.
+    public static int divide(int[] nums, int low, int high) {
+
+        // If there is only one element,
+        // there cannot be any reverse pair.
+        if (low >= high) {
+            return 0;
+        }
+
+        // Find the middle index.
+        int mid = low + (high - low) / 2;
+
+        // Count reverse pairs in the left half.
+        int count = divide(nums, low, mid);
+
+        // Count reverse pairs in the right half.
+        count += divide(nums, mid + 1, high);
+
+        // Count reverse pairs between the left and right halves.
+        count += merge(nums, low, mid, high);
+
+        return count;
+    }
+
     public static void main(String[] args) {
 
         int[] nums = {1, 3, 2, 3, 1};
 
         int result = BetterApproach(nums);
         System.out.println("Number of Reverse Pairs using better Approach: " + result);
+
+         int answer = OptimalApproach(nums);
+        System.out.println("Number of Reverse Pairs: " + answer);
     }
 }
