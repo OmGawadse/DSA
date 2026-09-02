@@ -29,6 +29,6 @@ public class ReversePairs {
         int[] nums = {1, 3, 2, 3, 1};
 
         int result = BetterApproach(nums);
-        System.out.println("Number of Reverse Pairs: " + result);
+        System.out.println("Number of Reverse Pairs using better Approach: " + result);
     }
 }
