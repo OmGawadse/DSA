@@ -25,99 +25,87 @@ public class ReversePairs {
         }
         return count;
     }
-
+// -----------------------------------------------------------------OPTIMAL APPROACH-----------------------------------------------------
     // Time Complexity: O(n log n) & Space Complexity: O(n)
     public static int OptimalApproach(int[] nums) {
         return divide(nums, 0, nums.length - 1);
     }
 
-    // divide() splits the array into two halves.
-    // It recursively solves the left and right halves, untill there is only one element left in the array.
-    public static int divide(int[] nums, int low, int high) {
+        private static int divide(int[] nums, int l, int r) {
 
-        // If there is only one element,
-        // there cannot be any reverse pair.
-        if (low >= high) {
-            return 0;
-        }
+        // If l >= r, there is only one element in the range & A single element cannot form a reverse pair.
+        if (l >= r)  return 0;
 
-        // Find the middle index.
-        int mid = low + (high - low) / 2;
-
-        // Count reverse pairs in the left half.
-        int count = divide(nums, low, mid);
-
-        // Count reverse pairs in the right half.
-        count += divide(nums, mid + 1, high);
-
-        // Count reverse pairs between the left and right halves.
-        count += merge(nums, low, mid, high);
-
-        return count;
-    }
-
-     // merge() counts reverse pairs between the two sorted halves
-    // and then merges them into one sorted array.
-    public static int merge(int[] nums, int low, int mid, int high) {
-
+        int mid = l + (r - l) / 2;
         int count = 0;
 
-        // j starts from the first element of the right half.
+        // Divide and count reverse pairs in the left half.
+        count += divide(nums, l, mid);          // Till 1st single element is the left half.
+
+        // Divide and count reverse pairs in the right half.
+        count += divide(nums, mid + 1, r);      // Till 1st single element is the right half.
+
+        // mid + 1 is the first index of the right half. Therefore, j starts from the first element of the right half.
         int j = mid + 1;
 
-        // Count reverse pairs.
-        for (int i = low; i <= mid; i++) {
+        // i starts from the first index of the left half.
+        for (int i = l; i <= mid; i++) {
 
-            // Check:
-            // nums[i] > 2 * nums[j]
-            //
-            // 2L is used to avoid integer overflow.
-            while (j <= high && (long) nums[i] > 2L * nums[j]) {
-                j++;
+            while (j <= r && (long) nums[i] > 2L * nums[j]) {
+                j++;     // If true, nums[i] and nums[j] form a reverse pair.
             }
 
-            // All elements from mid + 1 to j - 1
-            // form reverse pairs with nums[i].
+            // once j is exausted & has moved past all valid elements.
+            // j - (mid + 1) gives the number of elements in the right half that form reverse pairs with nums[i].
             count += j - (mid + 1);
         }
-        // Temporary ArrayList used for merging.
-        ArrayList<Integer> temp = new ArrayList<>();
 
-        int left = low;
-        int right = mid + 1;
-
-        // Merge the two sorted halves.
-        while (left <= mid && right <= high) {
-
-            if (nums[left] <= nums[right]) {
-                temp.add(nums[left]);
-                left++;
-            }
-            else {
-                temp.add(nums[right]);
-                right++;
-            }
-        }
-
-        // Add remaining elements from the left half.
-        while (left <= mid) {
-            temp.add(nums[left]);
-            left++;
-        }
-
-        // Add remaining elements from the right half.
-        while (right <= high) {
-            temp.add(nums[right]);
-            right++;
-        }
-
-        // Copy sorted elements back into nums[].
-        for (int i = low; i <= high; i++) {
-            nums[i] = temp.get(i - low);
-        }
+        merge(nums, l, mid, r); // Merge
 
         return count;
     }
+
+// This function merges the sorted left and right halves.
+public static void merge(int[] nums, int l, int mid, int r) {
+
+    ArrayList<Integer> temp = new ArrayList<>();
+
+    // i starts at l, the first element of the left half.
+    int i = l;
+
+    // j starts at mid + 1, the first element of the right half.
+    int j = mid + 1;
+
+    // Compare elements from both halves
+    // and add the smaller element to temp.
+    while (i <= mid && j <= r) {
+
+        if (nums[i] <= nums[j]) {
+            temp.add(nums[i]);
+            i++;
+        } else {
+            temp.add(nums[j]);
+            j++;
+        }
+    }
+
+    // If elements are still remaining in the left half, add all of them to temp.
+    while (i <= mid) {
+        temp.add(nums[i]);
+        i++;
+    }
+
+    // If elements are still remaining in the right half, add all of them to temp.
+    while (j <= r) {
+        temp.add(nums[j]);
+        j++;
+    }
+
+    for (int x = l; x <= r; x++) {
+        nums[x] = temp.get(x - l);
+    }
+}
+
 //----------------------------------------------------------------------------------------------------------------------------------
 
     public static void main(String[] args) {
