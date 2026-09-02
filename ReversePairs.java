@@ -1,5 +1,7 @@
 // 74 . Reverse Pairs
 
+import java.util.ArrayList;
+
 public class ReversePairs {
 
     // Time Complexity: O(n^2) & Space Complexity: O(1)
@@ -80,6 +82,44 @@ public class ReversePairs {
             // form reverse pairs with nums[i].
             count += j - (mid + 1);
         }
+        // Temporary ArrayList used for merging.
+        ArrayList<Integer> temp = new ArrayList<>();
+
+        int left = low;
+        int right = mid + 1;
+
+        // Merge the two sorted halves.
+        while (left <= mid && right <= high) {
+
+            if (nums[left] <= nums[right]) {
+                temp.add(nums[left]);
+                left++;
+            }
+            else {
+                temp.add(nums[right]);
+                right++;
+            }
+        }
+
+        // Add remaining elements from the left half.
+        while (left <= mid) {
+            temp.add(nums[left]);
+            left++;
+        }
+
+        // Add remaining elements from the right half.
+        while (right <= high) {
+            temp.add(nums[right]);
+            right++;
+        }
+
+        // Copy sorted elements back into nums[].
+        for (int i = low; i <= high; i++) {
+            nums[i] = temp.get(i - low);
+        }
+
+        return count;
+    }
 
 
     public static void main(String[] args) {
